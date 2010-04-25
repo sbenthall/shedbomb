@@ -41,11 +41,11 @@ $(document).ready(function(){
  *   as opposed to initiating an exhaustive comparison.
  */
 
-function compareItems(){
+function compareItems(itemPairs){
     $("#dashboard").hide();
     $("#comparison-page").show();
     
-    var itemPairs = shuffle(pairs(items));
+    var itemPairs = shuffle(itemPairs) || shuffle(pairs(items));
     
     var handlerFactory = function(item1, item2, itemPairs){
         return function(){
@@ -124,6 +124,14 @@ function addItemUI(item){
          *    pairs that include this item.
          *
          */
+        myItem = $(this).parent().data("item");
+        comparisons = $.grep(comparisons, function(comparison){
+            return !(comparison.winner == myItem || comparison.loser == myItem);
+        });
+
+        compareItems($.map(items, function(item){
+            return item == myItem ? null : [[item, myItem]];
+        }))
     });
 }
 
