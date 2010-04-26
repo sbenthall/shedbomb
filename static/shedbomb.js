@@ -26,7 +26,9 @@ $(document).ready(function(){
 
 
     //begin comparison
-    $("#compare-button").click(compareItems);
+    $("#compare-button").click(function(){
+        compareItems(); //wrapping this is avoid passing event
+    });
 
     $("#stop-button").click(function(){
         $("#comparison-page").hide();
@@ -45,7 +47,7 @@ function compareItems(itemPairs){
     $("#dashboard").hide();
     $("#comparison-page").show();
     
-    var itemPairs = shuffle(itemPairs) || shuffle(pairs(items));
+    var itemPairs = itemPairs || shuffle(pairs(items));
     
     var handlerFactory = function(item1, item2, itemPairs){
         return function(){
@@ -129,9 +131,9 @@ function addItemUI(item){
             return !(comparison.winner == myItem || comparison.loser == myItem);
         });
 
-        compareItems($.map(items, function(item){
+        compareItems(shuffle($.map(items, function(item){
             return item == myItem ? null : [[item, myItem]];
-        }))
+        })))
     });
 }
 
