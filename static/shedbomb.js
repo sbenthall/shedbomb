@@ -2,12 +2,8 @@
  * A list of Items
  *
  */
-
-//TODO: Consolidate Items list into data structure
-//      with methods and handlers
 var items = [];
 
-//TODO: More efficient data structure for comparisons
 var comparisons = []
 
 $(document).ready(function(){
@@ -120,17 +116,14 @@ function addItemUI(item){
     });
 
     $(itemListEntry).children("input.item-compare").click(function(){
-        /* TODO:
-         * 1) Remove the comparisons that are about this item
-         * 2) Begin a round of comparisons with only item
-         *    pairs that include this item.
-         *
-         */
+        // 1) Remove the comparisons that are about this item
         myItem = $(this).parent().data("item");
         comparisons = $.grep(comparisons, function(comparison){
             return !(comparison.winner == myItem || comparison.loser == myItem);
         });
 
+        // 2) Begin a round of comparisons with only item
+        //    pairs that include this item.
         compareItems(shuffle($.map(items, function(item){
             return item == myItem ? null : [[item, myItem]];
         })))
