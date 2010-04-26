@@ -12,7 +12,7 @@ Check out the code.
 
 Install some dependencies.
 
-'python app.py'
+`python app.py`
 
 
 to do
