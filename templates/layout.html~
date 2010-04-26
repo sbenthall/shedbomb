@@ -1,0 +1,98 @@
+<html>
+  <head>
+    <script src="jquery-1.4.2.min.js" type="text/javascript"></script>
+    <script src="shedbomb.js" type="text/javascript"></script>
+    
+    <!-- 
+         TODO:
+         - Separate style sheet
+         - Graphics for the buttons, layout
+         - logo
+         - header
+         - larger fonts, even for text inputs
+
+         - Begin by asking a question
+
+      -->
+    <style type="text/css">
+
+      body {
+         font-family:"Gill Sans MT","Gill Sans",GillSans,Arial,Helvetica,sans-serif;
+      }
+
+      div#header {
+         background-color: black;
+         color: red;
+         padding: .5em;
+      }
+
+      div#header h1{
+         font-size: x-large;
+         display: inline;
+         margin: 0;
+      }
+
+      div.comparable {
+         padding: 10px;
+         font-size: larger;
+         background-color: lightgray;
+      }
+
+      li {
+         width:300px;
+         clear:both;
+      }
+
+      span.item-val {
+      }
+
+      span.item-score {
+         margin: 0em 1em;
+         float:right;
+      }
+
+      input.remove {
+         float:right
+      }
+
+      input.item-compare {
+         float:right;
+      }
+
+    </style>
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+        addItem("Strip Mine");
+        addItem("Fat Mess");
+        addItem("Giggles");
+      });
+    </script>
+  </head>
+  <body>
+    <div id="header"><h1>shedbomb</h1> fuck yeah</div> 
+    <h2 id="question">What should my DJ Name be?</h2>
+    <div id="dashboard">
+      <ul id="item-list">
+      </ul>
+    
+      <div id="new-item-form"> 
+        <!-- Should this be a form? -->
+        <input type="text"  rows="15" id="new-item"></input>
+        <input type="button" id="add-button" value="Add"></input>
+      </div>
+
+      <input type="button" value="Drop the Bomb!" id="compare-button" />
+    </div>
+
+    <div id="comparison-page">
+      <div id="comparable-alpha" class="comparable"></div>
+       or 
+      <div id="comparable-beta" class="comparable"></div>
+      ? 
+      <br />(click one)
+      <input type="button" value="Stop the Bomb!" id="stop-button" />
+    </div>
+
+  </body>
+</html>
