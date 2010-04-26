@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+ 
+{% block html_head %}
+   <script type="text/javascript">
+      $(document).ready(function(){
+        addItem("Strip Mine");
+        addItem("Fat Mess");
+        addItem("Giggles");
+      });
+    </script>
+{% endblock %}
+
+<!--
+    <div id="header"></div> 
+    <h2 id="question">What should my DJ Name be?</h2>
+--!>
+
+{% block content %}
+    <div id="dashboard">
+      <ul id="item-list">
+      </ul>
+    
+      <div id="new-item-form"> 
+        <!-- Should this be a form? -->
+        <input type="text"  rows="15" id="new-item"></input>
+        <input type="button" id="add-button" value="Add"></input>
+      </div>
+
+      <input type="button" value="Drop the Bomb!" id="compare-button" />
+    </div>
+
+    <div id="comparison-page">
+      <div id="comparable-alpha" class="comparable"></div>
+       or 
+      <div id="comparable-beta" class="comparable"></div>
+      ? 
+      <br />(click one)
+      <input type="button" value="Stop the Bomb!" id="stop-button" />
+    </div>
+{% endblock %}

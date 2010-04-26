@@ -11,6 +11,7 @@ from web.contrib.template import render_jinja
 #print(db.foo.find_one())
 
 urls = (
+    '/bomb(.*)', 'Bomb', 
     '/(.*)', 'Index' 
 )
 
@@ -25,6 +26,12 @@ render = render_jinja(
 class Index:
     def GET(self, name):        
         return render.index()
+
+
+class Bomb:
+    def GET(self, name):        
+        return render.bomb()
+
 
 if __name__ == '__main__':
     app.run()

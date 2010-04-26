@@ -1,0 +1,44 @@
+
+body {
+  font-family:"Gill Sans MT","Gill Sans",GillSans,Arial,Helvetica,sans-serif;
+}
+
+div#header {
+  background-color: black;
+  color: red;
+  padding: .5em;
+}
+
+div#header h1{
+  font-size: x-large;
+  display: inline;
+  margin: 0;
+}
+
+div.comparable {
+  padding: 10px;
+  font-size: larger;
+  background-color: lightgray;
+}
+
+li {
+  width:300px;
+  clear:both;
+}
+
+span.item-val {
+}
+
+span.item-score {
+  margin: 0em 1em;
+  float:right;
+}
+
+input.remove {
+  float:right
+}
+
+input.item-compare {
+  float:right;
+}
+
