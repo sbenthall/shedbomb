@@ -10,8 +10,12 @@ def index():
 
 @app.route('/bomb',methods=['GET','POST'])
 def bomb():
-    return render_template('bomb.html',question=request.form['question'])
 
+    if request.method == 'POST':
+        question=request.form['question']
+    else:
+        question=request.args.get('question','Did you forget to ask a question?')
+    return render_template('bomb.html',question=question)
 
 if __name__ == '__main__':
     app.debug = True
