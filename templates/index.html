@@ -4,9 +4,14 @@
 {% endblock %}
 
 {% block content %}
-<h2>This is the index page.</h2>
+<h2>Somebody set us up the bomb.</h2>
 
-Nothing to see here yet.
+<form method="post" action="/bomb">
+  <input type="text"  rows="50" id="question" name="question"></input>
+  <input type="submit" id="submit-question" value="Ask"></input>
+</form>
 
-You should go to the path /bomb
+<p><em>shedbomb</em> makes it easy to answer hard questions.</p>
+
+<p>To start, submit a new question with the form above.</p>
 {% endblock %}
