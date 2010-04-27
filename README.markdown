@@ -9,7 +9,7 @@ to install
 ---------- 
   
   $ git clone git://github.com/sbenthall/shedbomb.git
-  $ cd shedbomb ; vituralenv . 
+  $ cd shedbomb ; virtualenv . 
   $ python setup.py develop
 
 to run
