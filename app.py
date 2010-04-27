@@ -1,41 +1,18 @@
-from pymongo import Connection
-import web
-from web.contrib.template import render_jinja
+from flask import Flask
+from flask import render_template
 
+app = Flask(__name__)
 
-#connection = Connection()
+@app.route('/')
+def index():
+    return render_template('index.html')
 
-#db = connection.test
-
-#db.foo.insert(foo)
-#print(db.foo.find_one())
-
-urls = (
-    '/bomb(.*)', 'Bomb', 
-    '/(.*)', 'Index' 
-)
-
-app = web.application(urls, globals())
-
-render = render_jinja(
-        'templates',   # Set template directory.
-        encoding = 'utf-8',                         # Encoding.
-    )
-
-
-class Index:
-    def GET(self, name):        
-        return render.index()
-
-
-class Bomb:
-    def GET(self, name):        
-        return render.bomb()
+@app.route('/bomb')
+def bomb():
+    return render_template('bomb.html')
 
 
 if __name__ == '__main__':
+    app.debug = True
     app.run()
 
-
-app = web.application(urls, globals(), autoreload=False)
-application = app.wsgifunc()
