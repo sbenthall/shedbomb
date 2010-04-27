@@ -5,6 +5,13 @@ shedbomb is a web service that uses conjoint analysis to blow up bike shed discu
 
 Or it will be, once it's not just some crap.
 
+to install 
+---------- 
+  
+  $ git clone git://github.com/sbenthall/shedbomb.git
+  $ cd shedbomb ; vituralenv . 
+  $ python setup.py develop
+
 to run
 ------
 
