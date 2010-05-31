@@ -36,6 +36,16 @@ def bomb():
 
     return render_template('bomb.html',question=question)
 
+@app.route('/answer',methods=['GET','POST'])
+def answer():
+    if request.method == 'POST':
+        # do something
+
+        return request.values['question'] + ' - ' + request.values['answer']
+    else:
+        # get and return something
+        return "Goodbye World!"
+
 if __name__ == '__main__':
     app.debug = True
     app.run()

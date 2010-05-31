@@ -13,7 +13,13 @@ $(document).ready(function(){
     //adding item to the list
     //TODO: functionalize out the add and remove functions
     //      for the callbacks here
-    $("#add-button").click(function(){        
+    $("#add-button").click(function(){
+
+        $.post('answer',{
+            question : question,
+            answer : $("#new-item").val()
+        });
+        
         addItem($("#new-item").val());
         $("#new-item").val("");
         
