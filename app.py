@@ -94,7 +94,7 @@ def answer():
         shed['answers'].remove(answer)
         shed.save();
 
-    return  request.method + ' - ' + question + ' - ' + answer
+    return request.method + ' - ' + question + ' - ' + answer
 
 
 if __name__ == '__main__':
