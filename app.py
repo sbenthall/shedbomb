@@ -82,18 +82,19 @@ def bomb(shed_id):
 
 
 
-@app.route('/answer',methods=['GET','PUT','DELETE'])
-def answer():
+@app.route('/bomb/<int:shed_id>/answer',methods=['GET','PUT'])
+def answer(shed_id):
     shed = bikesheds.Bikeshed.find_one({
-            'question': request.values['question']
+            '_id': shed_id
             })
 
-    question = request.values['question']
     answer = request.values['answer']
 
     if request.method == 'PUT':
         shed['answers'].append(answer)
         shed.save();
+        
+        return request.method + ' - ' + shed['question'] + ' - ' + answer
 
     elif request.method == 'DELETE':
         shed['answers'].remove(answer)

@@ -17,9 +17,8 @@ $(document).ready(function(){
 
         $.ajax({
             type: 'PUT',
-            url: 'answer',
+            url: '/bomb/'+shed_id+'/answer',
             data: {
-                shed_id: shed_id,
                 answer : $("#new-item").val()
             }
         });
