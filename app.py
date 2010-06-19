@@ -3,6 +3,7 @@ from flask import render_template
 from flask import request
 from flask import redirect
 import os.path
+import json
 from mongokit import *
 
 app = Flask(__name__)
@@ -75,8 +76,9 @@ def bomb(shed_id):
             })
 
     question = shed['question']
+    answers = shed['answers']
 
-    return render_template('bomb.html',question=question,shed_id=id)
+    return render_template('bomb.html',question=question,shed_id=shed_id, answers=json.dumps(answers))
 
 
 
