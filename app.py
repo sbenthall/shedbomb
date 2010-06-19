@@ -68,10 +68,10 @@ def new_bomb():
 
     return redirect("/bomb/" + str(shed_id))
 
-@app.route('/bomb/<int:id>',methods=['GET','POST'])
-def bomb(id):
+@app.route('/bomb/<int:shed_id>',methods=['GET','POST'])
+def bomb(shed_id):
     shed = bikesheds.Bikeshed.find_one({
-            '_id' : id
+            '_id' : shed_id
             })
 
     question = shed['question']
