@@ -15,9 +15,13 @@ $(document).ready(function(){
     //      for the callbacks here
     $("#add-form").submit(function(){
 
-        $.post('answer',{
-            question : question,
-            answer : $("#new-item").val()
+        $.ajax({
+            type: 'PUT',
+            url: 'answer',
+            data: {
+                question : question,
+                answer : $("#new-item").val()
+            }
         });
         
         addItem($("#new-item").val());
