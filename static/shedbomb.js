@@ -104,6 +104,12 @@ function addItem(item){
 };
 
 function removeItem(item){
+
+    $.ajax({
+        type: 'DELETE',
+        url: "/bomb/" + shed_id + "/" + encodeURIComponent(item.name)
+    });
+
     removeItemUI(item)
     items.splice(items.indexOf(item),1); //removes the item
 }

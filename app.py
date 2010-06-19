@@ -100,7 +100,17 @@ def answer(shed_id):
         return shed['answers']
 
 
-    return request.method + ' - ' + question + ' - ' + answer
+@app.route('/bomb/<int:shed_id>/<answer>',methods=['DELETE'])
+def remove_answer(shed_id, answer):
+    shed = bikesheds.Bikeshed.find_one({
+            '_id': shed_id
+            })
+
+    shed['answers'].remove(answer)
+    shed.save();
+
+    return str(shed['answers'])
+
 
 
 if __name__ == '__main__':
