@@ -96,9 +96,9 @@ def answer(shed_id):
         
         return request.method + ' - ' + shed['question'] + ' - ' + answer
 
-    elif request.method == 'DELETE':
-        shed['answers'].remove(answer)
-        shed.save();
+    elif request.method == 'GET':
+        return shed['answers']
+
 
     return request.method + ' - ' + question + ' - ' + answer
 
