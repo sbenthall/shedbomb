@@ -39,6 +39,12 @@ $(document).ready(function(){
         $("#comparison-page").hide();
         showDashboard();        
     });
+
+
+     for(var i = 0; i < answers.length; i++){
+         addItem(answers[i]);
+     }
+
 });
 
 
