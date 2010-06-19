@@ -8,7 +8,8 @@ app = Flask(__name__)
 
 class Bikeshed(Document):
     structure = {
-        'question':unicode
+        'question':unicode,
+        'answers': [unicode]
         }
     # required_fields = ['question']
     # default_values = {'question':u''}    
@@ -31,20 +32,31 @@ def bomb():
         question=request.args.get('question','Did you forget to ask a question?')
 
     bikesheds.Bikeshed({
-            'question': question
+            'question': question,
+            'answers' : []
             }).save()
 
     return render_template('bomb.html',question=question)
 
-@app.route('/answer',methods=['GET','POST'])
+@app.route('/answer',methods=['GET','PUT','DELETE'])
 def answer():
-    if request.method == 'POST':
-        # do something
+    shed = bikesheds.Bikeshed.find_one({
+            'question': request.values['question']
+            })
 
-        return request.values['question'] + ' - ' + request.values['answer']
-    else:
-        # get and return something
-        return "Goodbye World!"
+    question = request.values['question']
+    answer = request.values['answer']
+
+    if request.method == 'PUT':
+        shed['answers'].append(answer)
+        shed.save();
+
+    elif request.method == 'DELETE':
+        shed['answers'].remove(answer)
+        shed.save();
+
+    return  request.method + ' - ' + question + ' - ' + answer
+
 
 if __name__ == '__main__':
     app.debug = True
