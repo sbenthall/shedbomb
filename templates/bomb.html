@@ -20,15 +20,18 @@
 
 {% block content %}
    <h2 id="question">{{question}}</h2>
+   <p>Add possible answers to the question, then Drop the Bomb!</p>
 
     <div id="dashboard">
-      <ul id="item-list">
-      </ul>
+      <table id="item-table">
+      </table>
     
       <div id="new-item-form"> 
         <!-- Should this be a form? -->
-        <input type="text"  rows="15" id="new-item"></input>
-        <input type="button" id="add-button" value="Add"></input>
+        <form id="add-form">
+          <input type="text"  rows="15" id="new-item"></input>
+          <input type="submit" id="add-button" value="Add"></input>
+        </form>
       </div>
 
       <input type="button" value="Drop the Bomb!" id="compare-button" />

@@ -13,7 +13,7 @@ $(document).ready(function(){
     //adding item to the list
     //TODO: functionalize out the add and remove functions
     //      for the callbacks here
-    $("#add-button").click(function(){
+    $("#add-form").submit(function(){
 
         $.post('answer',{
             question : question,
@@ -107,17 +107,18 @@ function removeItem(item){
 
 function addItemUI(item){
 
-    itemHtml = "<li name='"  + item.name + "'>"
-        + "<span class='item-val'>" + item.name + "</span>"
-        + '<input type="button" value="Remove" class="remove"></input>'
-        + '<input type="button" value="Bomb" class="item-compare"""></input>'
-        + "<span class='item-score'>" + item.score + "</span></li>"
+    itemHtml = "<tr name='" + item.name + "'>"
+        + "<td class='item-val'>" + item.name + "</td>"
+        + "<td><span class='item-score'>" + item.score + "</span></td>"
+        + '<td><input type="button" value="Remove" class="remove"></input></td>'
+        + '<td><input type="button" value="Bomb" class="item-compare"""></input></td>'
+        + "</tr>";
 
     itemListEntry = $(itemHtml).data("item",item);
 
-    $("#item-list").append(itemListEntry);
+    $("#item-table").append(itemListEntry);
 
-    $(itemListEntry).children("input.remove").click(function(){
+    $(itemListEntry).children().children("input.remove").click(function(){
         removeItem(item);
     });
 
@@ -137,12 +138,12 @@ function addItemUI(item){
 }
 
 function removeItemUI(item){
-    $("#item-list").children("li[name="+item.name+"]").remove();
+    $("#item-table").children("tr[name="+item.name+"]").remove();
 }
 
 
 function showDashboard(){
-    $("#item-list").children("li").remove();
+    $("#item-table").children("tr").remove();
 
     var winnerTest = function(item){
         return function(comparison){
