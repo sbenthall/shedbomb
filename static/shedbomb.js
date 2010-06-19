@@ -138,7 +138,7 @@ function addItemUI(item){
 }
 
 function removeItemUI(item){
-    $("#item-table").children("tr[name="+item.name+"]").remove();
+    $("#item-table").children().children("tr[name="+item.name+"]").remove();
 }
 
 
