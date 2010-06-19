@@ -160,7 +160,7 @@ function removeItemUI(item){
 
 
 function showDashboard(){
-    $("#item-table").children("tr").remove();
+    $("#item-table").children().children("tr").remove();
 
     var winnerTest = function(item){
         return function(comparison){
