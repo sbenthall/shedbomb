@@ -19,7 +19,7 @@ $(document).ready(function(){
             type: 'PUT',
             url: 'answer',
             data: {
-                question : question,
+                shed_id: shed_id,
                 answer : $("#new-item").val()
             }
         });
