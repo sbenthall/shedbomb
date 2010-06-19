@@ -31,9 +31,12 @@ def new_shed_id():
         file.write("0")
         file.close()
 
-    file = open(sitedata,'r+')
+    file = open(sitedata,'r')
     shed_id = int(file.read())
+    file.close()
     shed_id += 1
+
+    file = open(sitedata,'w')
     file.write(str(shed_id))
     file.close()
     return shed_id
