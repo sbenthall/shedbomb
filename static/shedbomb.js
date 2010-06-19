@@ -45,6 +45,8 @@ $(document).ready(function(){
          addItem(answers[i]);
      }
 
+    $("#new-item").focus()
+
 });
 
 
